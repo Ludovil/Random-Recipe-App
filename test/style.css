@@ -21,17 +21,17 @@ body {
 
 .category-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .category {
-  margin-left: 50px;
-  border: 1px solid white;
-  background-color: white;
+  margin-left: 10px;
   border-radius: 1rem;
   padding: 1rem;
+  font-weight: 0.8rem;
 }
 .icon {
-  height: 50px;
+  height: 25px;
   width: auto;
 }
 
