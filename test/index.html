@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="front-page">
+      <header class="category-container">
+        <div class="category">
+          <img
+            src="./category_icons/Beef.png"
+            alt=""
+            class="icon beef"
+            data-category="Beef"
+          />
+          <p>beef</p>
+        </div>
+        <div class="category">
+          <img
+            src="./category_icons/Breakfast.png"
+            alt=""
+            class="icon breakfast"
+            data-category="Breakfast"
+          />
+          <p>breakfast</p>
+        </div>
+      </header>
+      <div class="title-container">
+        <img src="img/chef_logo.png" alt="" class="title-logo" />
+        <h1 class="title">Chef's Surprise</h1>
+      </div>
+      <p>
+        Chef's Surprise is your passport to culinary adventure! With just a
+        click, embark on a delicious journey through a world of diverse flavors
+        and dishes. Whether you're an aspiring home cook or a seasoned chef,
+        Chef's Surprise will inspire your next meal by randomly selecting unique
+        recipes from a vast collection. Say goodbye to mealtime monotony and let
+        the excitement of surprise take over your kitchen. Get ready to
+        discover, cook, and savor amazing dishes, one surprise at a time.
+      </p>
+      <button class="btn-recipe">get a recipe</button>
+    </section>
+    <script>
+      const categoryDivs = document.querySelectorAll(".category");
+
+      categoryDivs.forEach((div) => {
+        div.addEventListener("click", (e) => {
+          console.log("class:", e.target.classList);
+          console.log("data:", e.target.dataset.category);
+          const category = e.target.dataset.category;
+          getRecipePerCategory(category);
+        });
+      });
+
+      async function getRecipePerCategory(category) {
+        const response = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data);
+        } else {
+          console.error("Failed to fetch data:", response.status);
+        }
+      }
+    </script>
+  </body>
+</html>

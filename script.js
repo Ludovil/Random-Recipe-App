@@ -35,15 +35,21 @@ async function getRecipe() {
   const recipeCategory = document.createElement("p");
   recipeCategory.innerText = recipe.strCategory;
   recipeCategory.classList.add("category");
-
+  // Category Icon
+  const categoryIcon = document.createElement("img");
+  categoryIcon.classList.add("category-icon");
+  const categoryIconFileName = `${recipe.strCategory}.png`;
+  categoryIcon.src = `category_icons/${categoryIconFileName}`;
+  console.log(categoryIconFileName);
   topSection.appendChild(categoryHeader);
+  topSection.appendChild(categoryIcon);
   topSection.appendChild(recipeCategory);
 
   // Area Header
   const areaHeader = document.createElement("h3");
   areaHeader.innerText = "Area";
   areaHeader.classList.add("area-header");
-
+  // Area
   const recipeArea = document.createElement("p");
   recipeArea.innerText = recipe.strArea;
 
@@ -101,7 +107,7 @@ async function getRecipe() {
     return match ? match[1] : null;
   }
 }
-
+// update
 function cleanRecipeSection() {
   while (recipeSection.firstChild) {
     recipeSection.firstChild.remove();
