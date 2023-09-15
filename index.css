@@ -1,0 +1,140 @@
+:root {
+  --dark_orange: #ec780d;
+  --light_orange: #ffb16a;
+  --black: #000;
+  --white: #fff;
+  --primary_font: "Libre Caslon Text", serif;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--black);
+  font-family: var(--primary_font);
+}
+
+/* --------------------------------------------- */
+.home {
+  height: 100vh;
+  padding: 0 10rem;
+  border: 5px solid blue;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 30px repeat(3, 1fr);
+}
+/* --------------------------------------------- */
+.div_navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.p_navigation {
+  display: inline;
+  color: var(--dark_orange);
+  font-size: 1.2rem;
+}
+i {
+  color: var(--light_orange);
+  font-size: 1.5rem;
+  margin-left: 15px;
+}
+i:hover {
+  cursor: pointer;
+  color: var(--dark_orange);
+  transition: ease-in-out 0.5s;
+}
+/* --------------------------------------------- */
+
+.title {
+  border: 10px solid white;
+  display: inline-block;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+}
+h1 {
+  color: var(--light_orange);
+  font-size: 6rem;
+  font-weight: lighter;
+}
+
+h2 {
+  color: var(--light_orange);
+  font-style: italic;
+  font-weight: lighter;
+  text-align: center;
+}
+/* --------------------------------------------- */
+.p_front_content {
+  color: var(--white);
+  border: 10px solid yellow;
+  font-size: 1.4rem;
+  grid-row: 3 / 5;
+  grid-column: 1/ 3;
+}
+
+.front_img {
+  border: 10px solid red;
+  grid-column: 3 / 5;
+  grid-row: 3 / 5;
+}
+
+#get_Recipe_Btn {
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: 1px solid var(--light_orange);
+  color: var(--light_orange);
+  background-color: transparent;
+  font-size: 1.4rem;
+}
+#get_Recipe_Btn:hover {
+  cursor: pointer;
+  color: var(--white);
+}
+#get_Recipe_Btn:active {
+  border: 1px solid var(--brown);
+}
+
+/* --------------------------------------------- */
+#recipe_section {
+  margin: auto;
+  width: 60%;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+/* --------------------------------------------- */
+
+.category-header {
+  display: inline;
+}
+
+/* --------------------------------------------- */
+.ingredients_measures {
+  list-style-type: none;
+  font-style: italic;
+}
+
+.recipe_instructions {
+  text-align: justify;
+  line-height: 1.5;
+  font-family: sans-serif;
+}

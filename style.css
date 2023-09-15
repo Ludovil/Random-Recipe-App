@@ -1,88 +1,118 @@
 :root {
-  --brown: #590209;
-  --black: #260104;
-  --yellow: #f2a74b;
-  --orange: #f27b13;
-  --red: #bf0404;
+  --dark_orange: #ec780d;
+  --light_orange: #ffb16a;
+  --black: #000;
   --white: #fff;
+  --primary_font: "Libre Caslon Text", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  box-sizing: border-box;
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  color: var(--black);
+  background-color: var(--black);
+  padding: 0 10rem;
+  font-family: var(--primary_font);
 }
 
-header {
-  background-color: var(--yellow);
-  padding: 2rem;
-  text-align: center;
-  display: grid;
+.div_navigation_home {
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: flex-start;
 }
-h1 {
-  margin: 0;
-  display: inline;
-}
-
-h2 {
-  text-align: center;
-  color: #590209;
-}
-
-#get_Recipe_Btn {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 5px;
-  border: none;
-  background-color: var(--orange);
-}
-#get_Recipe_Btn:hover {
-  cursor: pointer;
+.div_navigation_home a {
+  text-decoration: none;
   color: var(--white);
 }
-#get_Recipe_Btn:active {
-  border: 1px solid var(--brown);
+.div_navigation_home a .p_navigation {
+  color: var(--dark_orange);
+  font-size: 1.2rem;
 }
-
-/* --------------------------------------------- */
-#recipe_section {
-  margin: auto;
-  width: 60%;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-.top-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 15px;
-}
-/* --------------------------------------------- */
-
-.category-header {
+.div_navigation_home a i {
+  color: var(--light_orange);
+  font-size: 1.5rem;
+  margin-left: 15px;
   display: inline;
 }
-
-/* --------------------------------------------- */
-.ingredients_measures {
-  list-style-type: none;
-  font-style: italic;
+.div_navigation_home a i:hover {
+  cursor: pointer;
+  color: var(--dark_orange);
+  transition: ease-in-out 0.5s;
 }
 
-.recipe_instructions {
-  text-align: justify;
-  line-height: 1.5;
-  font-family: sans-serif;
+h1 {
+  color: var(--light_orange);
+  font-size: 6rem;
+  font-weight: lighter;
 }
+
+p {
+  color: var(--white);
+}
+
+.category_grid_container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.category_grid_container .category_card {
+  display: flex;
+  flex-direction: column;
+  max-width: 230px;
+}
+.category_grid_container .category_card .category_card_top {
+  position: relative;
+  height: 100%; /* Ensure container takes full height of .card */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  overflow: hidden;
+}
+.category_grid_container .category_card .category_card_top .category_img {
+  width: 100%;
+  height: 100%; /* Make the image cover the entire .card_top */
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.category_grid_container .category_card .category_card_top .category_p {
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 2rem;
+  z-index: 1;
+  position: relative; /* Ensure the p element appears above the image */
+  color: var(--dark_orange);
+}
+.category_grid_container .category_card .category_buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.category_grid_container .category_card .category_buttons button {
+  border-radius: 2rem;
+  font-size: 1rem;
+}
+.category_grid_container .category_card .category_buttons .random_button {
+  background-color: var(--dark_orange);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 0.8rem;
+}
+.category_grid_container .category_card .category_buttons .list_button {
+  background-color: transparent;
+  color: var(--dark_orange);
+  border: 1px solid var(--dark_orange);
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */
