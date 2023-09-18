@@ -1,16 +1,27 @@
-const getRecipeBtn = document.querySelector("#get_Recipe_Btn");
+const getRecipeBtn = document.querySelector(".get_Recipe_Btn");
 const recipeSection = document.querySelector("#recipe_section");
 const topSection = document.querySelector(".top-section");
 
+const homePageSection = document.querySelector(".home_section");
+const CategoryPageSection = document.querySelector(".category_section");
+
+const navDiv = document.querySelector(".div_navigation");
+navDiv.addEventListener("click", () => {
+  console.log("navDiv");
+  homePageSection.classList.add("hidden");
+  CategoryPageSection.classList.remove("hidden");
+});
+
 getRecipeBtn.addEventListener("click", () => {
+  console.log("get recipe");
   cleanRecipeSection();
   getRecipe();
 });
 
+const apiData = "https://www.themealdb.com/api/json/v1/1/random.php";
+
 async function getRecipe() {
-  const response = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/random.php"
-  );
+  const response = await fetch(apiData);
   const data = await response.json();
   const recipe = data.meals[0];
   console.log(recipe);

@@ -14,42 +14,68 @@
       src="https://kit.fontawesome.com/787dc16a3d.js"
       crossorigin="anonymous"
     ></script>
+    <script defer src="index.js" type="module"></script>
+    <script defer src="category.js" type="module"></script>
     <title>Chef's Surprise</title>
   </head>
+
   <body>
-    <main class="home">
+    <main class="main">
+      <!-- -----------------Navigation----------------------- -->
       <div class="div_navigation">
-        <a href="category.html">
-          <i class="fa-solid fa-arrow-right-long"></i>
+        <div class="sub_div_nav div_nav_left">
+          <i class="fa-solid fa-arrow-left-long"></i>
+          <p class="p_navigation">Back to Home</p>
+        </div>
+
+        <div class="sub_div_nav div_nav_right">
           <p class="p_navigation">Go to Category</p>
-        </a>
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
       </div>
+      <!-- -----------------Home Section----------------------- -->
+      <section class="home_section">
+        <div class="title">
+          <h1>
+            Chef's Surprise
+            <span class="undertitle">one click, one recipe</span>
+          </h1>
+        </div>
+        <div class="div_p_front_content">
+          <p class="p_front_content">
+            Chef's Surprise is your passport to culinary adventure! With just a
+            click, embark on a delicious journey through a world of diverse
+            flavors and dishes. Whether you're an aspiring home cook or a
+            seasoned chef, Chef's Surprise will inspire your next meal by
+            randomly selecting unique recipes from a vast collection. Say
+            goodbye to mealtime monotony and let the excitement of surprise take
+            over your kitchen. Get ready to discover, cook, and savor amazing
+            dishes, one surprise at a time.
+          </p>
+        </div>
 
-      <div class="title">
-        <h1>Chef's Surprise</h1>
-        <h2>one click, one recipe</h2>
-      </div>
-      <p class="p_front_content">
-        Chef's Surprise is your passport to culinary adventure! With just a
-        click, embark on a delicious journey through a world of diverse flavors
-        and dishes. Whether you're an aspiring home cook or a seasoned chef,
-        Chef's Surprise will inspire your next meal by randomly selecting unique
-        recipes from a vast collection. Say goodbye to mealtime monotony and let
-        the excitement of surprise take over your kitchen. Get ready to
-        discover, cook, and savor amazing dishes, one surprise at a time.
-      </p>
-      <button id="get_Recipe_Btn">Get Recipe</button>
+        <div class="div_get_recipe_btn">
+          <button class="get_recipe_btn">Get Recipe</button>
+        </div>
+        <div class="div_home_img">
+          <img src="./img/mae-mu-Pvclb-iHHYY-unsplash 1.png" alt="" />
+        </div>
+      </section>
 
-      <img
-        src="./img/mae-mu-Pvclb-iHHYY-unsplash 1.png"
-        alt=""
-        class="front_img"
-      />
+      <!-- -----------------Category Section----------------------- -->
+      <section class="category_section hidden">
+        <h1>Category</h1>
+        <p>
+          Here you can select a random recipe for a specific food category or
+          the whole list.
+        </p>
+
+        <div class="category_grid_container"></div>
+      </section>
     </main>
 
     <!-- <section id="recipe_section">
       <div class="top-section"></div>
     </section> -->
-    <script src="script.js" type="module"></script>
   </body>
 </html>
