@@ -16,80 +16,79 @@
 
 body {
   background-color: var(--black);
-  padding: 0 10rem;
+  padding: 0 13rem;
   font-family: var(--primary_font);
 }
 
 .main {
   margin-top: 1rem;
+  border: 1px solid white;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-.div_navigation {
+nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.div_navigation .sub_div_nav {
+nav .sub_nav {
   display: flex;
 }
-.div_navigation .sub_div_nav .p_navigation {
+nav .sub_nav .p_navigation {
   color: var(--dark_orange);
   font-size: 1.2rem;
 }
-.div_navigation .sub_div_nav i {
+nav .sub_nav i {
   color: var(--light_orange);
   font-size: 1.5rem;
   display: inline;
 }
-.div_navigation .sub_div_nav i:hover {
+nav .sub_nav:hover {
   cursor: pointer;
-  color: var(--dark_orange);
-  transition: ease-in-out 0.5s;
 }
 
-.home_section {
+#home_page {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 100px repeat(4, 200px);
 }
-.home_section .title {
+#home_page .title {
   grid-row: 2/3;
   grid-column: 1/4;
 }
-.home_section .title h1 {
+#home_page .title h1 {
   color: var(--light_orange);
   font-size: 6rem;
   font-weight: lighter;
   display: inline-block;
 }
-.home_section .title h1 .undertitle {
+#home_page .title h1 .undertitle {
   font-size: 0.5em;
   display: block;
   text-align: center;
   font-style: italic;
   font-weight: lighter;
 }
-.home_section .div_p_front_content {
+#home_page .div_p_home_content {
   grid-row: 3/5;
   grid-column: 1/4;
 }
-.home_section .div_p_front_content .p_front_content {
+#home_page .div_p_home_content .p_home_content {
   color: var(--white);
   font-size: 1.5rem;
   padding: 5rem 0;
   line-height: 1.5;
 }
-.home_section .div_get_recipe_btn {
+#home_page .div_recipe_btn {
   grid-column: 2/3;
   grid-row: 5/6;
   display: grid;
   place-items: center;
 }
-.home_section .div_get_recipe_btn .get_recipe_btn {
+#home_page .div_recipe_btn .recipe_btn {
   padding: 8px 20px;
   border-radius: 25px;
   border: 1px solid var(--light_orange);
@@ -99,46 +98,74 @@ body {
   height: 50px;
   width: 200px;
 }
-.home_section .div_home_img {
+#home_page .div_recipe_btn .recipe_btn:hover {
+  cursor: pointer;
+}
+#home_page .div_home_img {
   grid-column: 4/6;
   grid-row: -1/2;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.home_section .div_home_img img {
+#home_page .div_home_img img {
   width: 80%;
 }
 
 @media (max-width: 1482px) {
-  .home_section .title h1 {
+  #home_page .title h1 {
     font-size: 5rem;
   }
-  .home_section .div_p_front_content .p_front_content {
+  #home_page .div_p_home_content .p_home_content {
     font-size: 1.4rem;
   }
 }
 @media (max-width: 1282px) {
-  .home_section .title h1 {
+  #home_page .title h1 {
     font-size: 4rem;
   }
-  .home_section .div_p_front_content .p_front_content {
+  #home_page .div_p_home_content .p_home_content {
     font-size: 1.2rem;
   }
 }
-.category_grid_container {
+#recipe_page .content_recipe_section h2 {
+  color: var(--light_orange);
+}
+#recipe_page .content_recipe_section .recipe_category {
+  color: white;
+}
+#recipe_page .content_recipe_section .recipe_area {
+  color: white;
+}
+#recipe_page .content_recipe_section .recipe_tag {
+  color: white;
+}
+#recipe_page .content_recipe_section .ingredients_measures {
+  color: white;
+}
+#recipe_page .content_recipe_section .recipe_instructions {
+  color: white;
+}
+
+#category_page h1 {
+  color: var(--light_orange);
+}
+#category_page p {
+  color: #ec780d;
+}
+#category_page .category_grid_container {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-template-rows: repeat(4, 400px);
   gap: 2rem;
 }
-.category_grid_container .category_card {
+#category_page .category_grid_container .category_card {
   display: flex;
   flex-direction: column;
   max-width: 230px;
 }
-.category_grid_container .category_card .category_card_top {
+#category_page .category_grid_container .category_card .category_card_top {
   position: relative;
   height: 100%; /* Ensure container takes full height of .card */
   display: flex;
@@ -148,7 +175,7 @@ body {
   border-top-left-radius: 1rem;
   overflow: hidden;
 }
-.category_grid_container .category_card .category_card_top .category_img {
+#category_page .category_grid_container .category_card .category_card_top .category_img {
   width: 100%;
   height: 100%; /* Make the image cover the entire .card_top */
   object-fit: cover; /* Maintain aspect ratio while covering the container */
@@ -156,7 +183,7 @@ body {
   top: 0;
   left: 0;
 }
-.category_grid_container .category_card .category_card_top .category_p {
+#category_page .category_grid_container .category_card .category_card_top .category_p {
   background-color: rgba(0, 0, 0, 0.7);
   text-align: center;
   font-size: 2rem;
@@ -164,25 +191,25 @@ body {
   position: relative; /* Ensure the p element appears above the image */
   color: var(--dark_orange);
 }
-.category_grid_container .category_card .category_buttons {
+#category_page .category_grid_container .category_card .category_buttons {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
 }
-.category_grid_container .category_card .category_buttons button {
+#category_page .category_grid_container .category_card .category_buttons button {
   border-radius: 2rem;
   font-size: 1rem;
 }
-.category_grid_container .category_card .category_buttons .button:hover {
+#category_page .category_grid_container .category_card .category_buttons .button:hover {
   cursor: pointer;
 }
-.category_grid_container .category_card .category_buttons .random_button {
+#category_page .category_grid_container .category_card .category_buttons .random_button {
   background-color: var(--dark_orange);
   color: var(--white);
   border: none;
   padding: 0.5rem 0.8rem;
 }
-.category_grid_container .category_card .category_buttons .list_button {
+#category_page .category_grid_container .category_card .category_buttons .list_button {
   background-color: transparent;
   color: var(--dark_orange);
   border: 1px solid var(--dark_orange);
