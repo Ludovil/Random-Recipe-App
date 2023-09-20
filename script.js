@@ -29,6 +29,10 @@ const contentRecipeSection = document.querySelector(".content_recipe_section");
 const categorySection = document.querySelector("#category_page");
 const listSection = document.querySelector("#list_page");
 
+// /!\ TO DO /!\
+//changer le query selector du btn et plus de besoin de for each
+//
+
 const recipeBtns = document.querySelectorAll(".recipe_btn");
 const listBtn = document.querySelector(".list_btn");
 
@@ -50,6 +54,14 @@ recipeBtns.forEach((btn) => {
       console.error("An error occurred:", error);
     }
   });
+});
+
+// Listen for the cleanRecipe event and clean the recipe section
+document.addEventListener("cleanRecipe", () => {
+  console.log("Cleaning recipe section");
+  while (contentRecipeSection.firstChild) {
+    contentRecipeSection.firstChild.remove();
+  }
 });
 
 // RECIPE PAGE
@@ -143,14 +155,6 @@ async function getRecipe() {
     return match ? match[1] : null;
   }
 }
-
-// Listen for the cleanRecipe event and clean the recipe section
-document.addEventListener("cleanRecipe", () => {
-  console.log("Cleaning recipe section");
-  while (contentRecipeSection.firstChild) {
-    contentRecipeSection.firstChild.remove();
-  }
-});
 
 // RECIPE CATEGORY
 
