@@ -14,35 +14,36 @@
       src="https://kit.fontawesome.com/787dc16a3d.js"
       crossorigin="anonymous"
     ></script>
-    <script defer src="index.js" type="module"></script>
-    <script defer src="category.js" type="module"></script>
-    <title>Chef's Surprise</title>
+    <title>Document</title>
   </head>
 
   <body>
-    <main class="main">
-      <!-- -----------------Navigation----------------------- -->
-      <div class="div_navigation">
-        <div class="sub_div_nav div_nav_left">
+    <main>
+      <!-- -----------------NAV---------------------- -->
+
+      <nav>
+        <div class="sub_nav back_home">
           <i class="fa-solid fa-arrow-left-long"></i>
           <p class="p_navigation">Back to Home</p>
         </div>
-
-        <div class="sub_div_nav div_nav_right">
+        <div class="sub_nav go_category">
           <p class="p_navigation">Go to Category</p>
           <i class="fa-solid fa-arrow-right-long"></i>
         </div>
-      </div>
-      <!-- -----------------Home Section----------------------- -->
-      <section class="home_section">
+      </nav>
+
+      <!-- -----------------HOME-------------------- -->
+
+      <section id="home_page">
         <div class="title">
           <h1>
             Chef's Surprise
             <span class="undertitle">one click, one recipe</span>
           </h1>
         </div>
-        <div class="div_p_front_content">
-          <p class="p_front_content">
+
+        <div class="div_p_home_content">
+          <p class="p_home_content">
             Chef's Surprise is your passport to culinary adventure! With just a
             click, embark on a delicious journey through a world of diverse
             flavors and dishes. Whether you're an aspiring home cook or a
@@ -53,17 +54,26 @@
             dishes, one surprise at a time.
           </p>
         </div>
-
-        <div class="div_get_recipe_btn">
-          <button class="get_recipe_btn">Get Recipe</button>
+        <div class="div_recipe_btn">
+          <button class="recipe_btn">get Recipe</button>
         </div>
         <div class="div_home_img">
-          <img src="./img/mae-mu-Pvclb-iHHYY-unsplash 1.png" alt="" />
+          <img
+            src="./img/mae-mu-Pvclb-iHHYY-unsplash 1.png"
+            alt="fork with pasta"
+          />
         </div>
       </section>
 
-      <!-- -----------------Category Section----------------------- -->
-      <section class="category_section hidden">
+      <!-- ----------------RECIPE------------------- -->
+
+      <section id="recipe_page" class="hidden">
+        <div class="content_recipe_section"></div>
+      </section>
+
+      <!-- ---------------CATEGORY------------------ -->
+
+      <section id="category_page" class="hidden">
         <h1>Category</h1>
         <p>
           Here you can select a random recipe for a specific food category or
@@ -72,10 +82,15 @@
 
         <div class="category_grid_container"></div>
       </section>
-    </main>
 
-    <!-- <section id="recipe_section">
-      <div class="top-section"></div>
-    </section> -->
+      <!-- -----------------LIST-------------------- -->
+
+      <section id="list_page" class="hidden">
+        <h2>List</h2>
+      </section>
+
+      <!-- ----------------------------------------- -->
+    </main>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
