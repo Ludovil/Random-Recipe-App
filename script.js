@@ -1,4 +1,6 @@
+//////////////////
 // NAVIGATION
+//////////////////
 
 const backHome = document.querySelector(".back_home");
 const goCategory = document.querySelector(".go_category");
@@ -22,7 +24,10 @@ goCategory.addEventListener("click", () => {
   backHome.style.visibility = "visible";
 });
 
+//////////////////
 // HOME PAGE
+//////////////////
+
 const homeSection = document.querySelector("#home_page");
 const recipeSection = document.querySelector("#recipe_page");
 const contentRecipeSection = document.querySelector(".content_recipe_section");
@@ -45,6 +50,7 @@ recipeBtns.forEach((btn) => {
       recipeSection.classList.remove("hidden");
       backHome.style.visibility = "visible";
 
+      // CLEAN PREVIOUS RECIPE
       // Dispatch the cleanEvent before fetching a new recipe
       const cleanEvent = new Event("cleanRecipe");
       document.dispatchEvent(cleanEvent);
@@ -64,7 +70,9 @@ document.addEventListener("cleanRecipe", () => {
   }
 });
 
+///////////////////
 // RECIPE PAGE
+///////////////////
 
 const apiData = "https://www.themealdb.com/api/json/v1/1/random.php";
 
@@ -73,13 +81,16 @@ async function getRecipe() {
   const data = await response.json();
   const recipe = data.meals[0];
   console.log("Recipe loaded successfully");
+  console.log(recipe);
+  createRecipe(recipe);
+}
 
+function createRecipe(recipe) {
   // Title
   const recipeTitle = document.createElement("h2");
   recipeTitle.innerText = recipe.strMeal;
   contentRecipeSection.appendChild(recipeTitle);
   recipeSection.appendChild(contentRecipeSection);
-
   // Category
   const recipeCategory = document.createElement("p");
   recipeCategory.innerText = recipe.strCategory;
@@ -111,7 +122,6 @@ async function getRecipe() {
     contentRecipeSection.appendChild(recipeTag);
     recipeSection.appendChild(contentRecipeSection);
   });
-
   // Ingredients & Measures
   const recipeIngredientsAndMeasures = document.createElement("ul");
   contentRecipeSection.appendChild(recipeIngredientsAndMeasures);
@@ -156,7 +166,9 @@ async function getRecipe() {
   }
 }
 
-// RECIPE CATEGORY
+////////////////////////
+// RECIPE CATEGORY PAGE
+////////////////////////
 
 const categoryGridContainer = document.querySelector(
   ".category_grid_container"
@@ -191,7 +203,7 @@ async function getRecipeCategory() {
         categoryP.classList.add("category_p");
         categoryP.innerText = element.strCategory;
 
-        // Buttons
+        // Buttons Random/List
         const categoryBtn = document.createElement("div");
         categoryBtn.classList.add("category_buttons");
 
@@ -203,6 +215,7 @@ async function getRecipeCategory() {
         listBtn.classList.add("button", "list_button");
         listBtn.innerText = "List";
 
+        // Random Btn event
         randomBtn.addEventListener("click", async () => {
           try {
             const randomData = await getListCategory(element.strCategory);
@@ -213,17 +226,31 @@ async function getRecipeCategory() {
                 Math.floor(Math.random() * randomData.meals.length)
               ];
 
+            // CLEAN PREVIOUS RECIPE
+            // Dispatch the cleanEvent before fetching a new recipe
+            const cleanEvent = new Event("cleanRecipe");
+            document.dispatchEvent(cleanEvent);
+
             // extract the ID of the recipe
             const recipeId = randomRecipe.idMeal;
             // get the whole recipe with ID
             const recipeData = await getRecipeWithId(recipeId);
             const recipe = recipeData.meals[0];
+            console.log("random btn clicked");
             console.log(recipe);
+            // make disappear the category section
+            categorySection.classList.add("hidden");
+            // getting the new recipe :
+            // Problem  => don't get the expected recipe but a random one - has to work on the getRecipe() function
+            recipeSection.classList.remove("hidden");
+            // getRecipe();
+            createRecipe(recipe);
           } catch (err) {
             console.error("An error occured: ", err);
           }
         });
 
+        // List Btn event
         listBtn.addEventListener("click", async () => {
           const recipeList = await getListCategory(element.strCategory);
           console.log(recipeList.meals[0]);
