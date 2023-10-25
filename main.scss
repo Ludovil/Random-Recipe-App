@@ -267,3 +267,19 @@ nav {
     font-size: 3rem;
   }
 }
+
+////////////////////////////////////////
+/// LIST PAGE
+////////////////////////////////////////
+///
+#list_page {
+  h1 {
+    color: var(--light_orange);
+  }
+  p {
+    color: #ec780d;
+  }
+  .list_grid_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
