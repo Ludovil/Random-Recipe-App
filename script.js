@@ -215,7 +215,7 @@ async function getRecipeCategory() {
         listBtn.classList.add("button", "list_button");
         listBtn.innerText = "List";
 
-        // Random Btn event
+        // RANDOM BTN EVENT
         randomBtn.addEventListener("click", async () => {
           try {
             const randomData = await getListCategory(element.strCategory);
@@ -250,10 +250,25 @@ async function getRecipeCategory() {
           }
         });
 
-        // List Btn event
+        // LIST BTN EVENT
         listBtn.addEventListener("click", async () => {
           const recipeList = await getListCategory(element.strCategory);
-          console.log(recipeList.meals[0]);
+          //////////////////////////////////////////////////
+          // title for recipe list page
+          const listTitle = document.querySelector("#list_title");
+          //////////////////////////////////////////////////
+          //
+          ////////////////////////////////////////////////
+          // add the title dynamically
+          listTitle.innerHTML = `${element.strCategory}`;
+          ///////////////////////////////////////////////
+          //
+          // make disappear the category section
+          categorySection.classList.add("hidden");
+          listSection.classList.remove("hidden");
+          // console.log(recipeList);
+          // console.log(listSection);
+          createList(recipeList);
         });
 
         // Append the elements to the fragment
@@ -308,3 +323,25 @@ async function getRecipeWithId(id) {
 }
 
 getRecipeCategory();
+
+////////////////////////
+// RECIPE LIST PAGE
+////////////////////////
+
+// console.log(listGridContainer);
+
+// /!\  clean the recipe list page when back to category /!\
+
+function createList(recipeList) {
+  const listGridContainer = document.querySelector(".list_grid_container");
+  listGridContainer.innerHTML = "";
+  // console.log(listGridContainer);
+  //console.log("list:", recipeList);
+  recipeList.meals.forEach((meal) => {
+    //console.log(meal.strMeal);
+    // Title
+    const mealTitle = document.createElement("p");
+    mealTitle.innerText = meal.strMeal;
+    listGridContainer.appendChild(mealTitle);
+  });
+}

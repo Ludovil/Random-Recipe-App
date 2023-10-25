@@ -227,5 +227,14 @@ nav .sub_nav:hover {
     font-size: 3rem;
   }
 }
+#list_page h1 {
+  color: var(--light_orange);
+}
+#list_page p {
+  color: #ec780d;
+}
+#list_page .list_grid_container {
+  grid-template-columns: repeat(2, 1fr);
+}
 
 /*# sourceMappingURL=style.css.map */
