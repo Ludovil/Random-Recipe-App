@@ -253,7 +253,11 @@ async function getRecipeCategory() {
         // List Btn event
         listBtn.addEventListener("click", async () => {
           const recipeList = await getListCategory(element.strCategory);
-          console.log(recipeList.meals[0]);
+          // make disappear the category section
+          categorySection.classList.add("hidden");
+          listSection.classList.remove("hidden");
+          console.log(recipeList);
+          console.log(listSection);
         });
 
         // Append the elements to the fragment
@@ -308,3 +312,7 @@ async function getRecipeWithId(id) {
 }
 
 getRecipeCategory();
+
+////////////////////////
+// RECIPE LIST PAGE
+////////////////////////
