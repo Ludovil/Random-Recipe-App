@@ -21,18 +21,22 @@ goCategory.addEventListener("click", () => {
   homeSection.classList.add("hidden");
   recipeSection.classList.add("hidden");
   categorySection.classList.remove("hidden");
+  listSection.classList.add("hidden");
   backHome.style.visibility = "visible";
 });
 
 //////////////////
-// HOME PAGE
+// ELEMENTS
 //////////////////
-
 const homeSection = document.querySelector("#home_page");
 const recipeSection = document.querySelector("#recipe_page");
 const contentRecipeSection = document.querySelector(".content_recipe_section");
 const categorySection = document.querySelector("#category_page");
 const listSection = document.querySelector("#list_page");
+
+//////////////////
+// HOME PAGE
+//////////////////
 
 // /!\ TO DO /!\
 //changer le query selector du btn et plus de besoin de for each
@@ -243,6 +247,10 @@ async function getRecipeCategory() {
             // getting the new recipe :
             // Problem  => don't get the expected recipe but a random one - has to work on the getRecipe() function
             recipeSection.classList.remove("hidden");
+
+            // DO NOT WORK :
+            /* listSection.classList.remove("visible");
+            listSection.classList.add("hidden"); */
             // getRecipe();
             createRecipe(recipe);
           } catch (err) {
@@ -343,5 +351,7 @@ function createList(recipeList) {
     const mealTitle = document.createElement("p");
     mealTitle.innerText = meal.strMeal;
     listGridContainer.appendChild(mealTitle);
+    // a verifier
+    listSection.appendChild(listGridContainer);
   });
 }
