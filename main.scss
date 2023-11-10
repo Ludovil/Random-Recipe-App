@@ -5,6 +5,7 @@
   --white: #fff;
   --primary_font: "Libre Caslon Text", serif;
 }
+
 *,
 *::before,
 *::after {
@@ -13,15 +14,15 @@
   padding: 0;
 }
 
+html,
 body {
-  background-color: var(--black);
-  padding: 0 13rem;
-  font-family: var(--primary_font);
+  height: 100%;
 }
 
-.main {
-  margin-top: 1rem;
-  border: 1px solid white;
+body {
+  background-color: var(--black);
+  font-family: var(--primary_font);
+  padding: 0 2rem;
 }
 
 .hidden {
@@ -56,102 +57,191 @@ nav {
 ////////////////////////////////////////
 /// HOME PAGE
 ////////////////////////////////////////
+.home_page {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  background: url(img/bg-img.png) no-repeat bottom right;
 
-#home_page {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 100px repeat(4, 200px);
-  .title {
-    grid-row: 2 / 3;
-    grid-column: 1 / 4;
-    h1 {
-      color: var(--light_orange);
-      font-size: 6rem;
-      font-weight: lighter;
-      display: inline-block;
-      .undertitle {
-        font-size: 0.5em;
-        display: block;
-        text-align: center;
-        font-style: italic;
-        font-weight: lighter;
-      }
-    }
-  }
-  .div_p_home_content {
-    grid-row: 3 / 5;
-    grid-column: 1 / 4;
-    .p_home_content {
-      color: var(--white);
-      font-size: 1.5rem;
-      padding: 5rem 0;
-      line-height: 1.5;
-    }
-  }
-  .div_recipe_btn {
-    grid-column: 2 / 3;
-    grid-row: 5 / 6;
-    display: grid;
-    place-items: center;
-    .recipe_btn {
-      padding: 8px 20px;
-      border-radius: 25px;
-      border: 1px solid var(--light_orange);
-      color: var(--light_orange);
-      background-color: transparent;
-      font-size: 1.4rem;
-      height: 50px;
-      width: 200px;
-    }
-    .recipe_btn:hover {
-      cursor: pointer;
-    }
-  }
-  .div_home_img {
-    grid-column: 4 / 6;
-    grid-row: -1 / 2;
+  .home_container {
+    border: 1px solid white;
+    flex: 1 1 auto;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    img {
-      width: 80%;
-    }
-  }
-}
-@media (max-width: 1482px) {
-  #home_page {
-    .title {
+    .title_container {
+      flex: auto;
+      display: grid;
+      place-content: center;
       h1 {
+        color: var(--light_orange);
         font-size: 5rem;
+        font-weight: lighter;
+        display: inline-block;
+        .undertitle {
+          font-size: 0.5em;
+          display: block;
+          text-align: center;
+          font-style: italic;
+          font-weight: lighter;
+        }
       }
     }
-    .div_p_home_content {
-      .p_home_content {
+    .text_container {
+      border: 1px solid white;
+      flex: auto;
+      display: grid;
+      place-content: center;
+      .home_text {
+        color: var(--white);
+        font-size: 1.25rem;
+        line-height: 1.5;
+        padding: 5rem 0;
+      }
+    }
+    .btn_container {
+      border: 1px solid white;
+      flex: auto;
+      display: grid;
+      place-content: center;
+      .recipe_btn {
+        padding: 8px 20px;
+        border-radius: 25px;
+        border: 1px solid var(--light_orange);
+        color: var(--light_orange);
+        background-color: transparent;
         font-size: 1.4rem;
+        height: 50px;
+        width: 200px;
       }
-    }
-  }
-}
-@media (max-width: 1282px) {
-  #home_page {
-    .title {
-      h1 {
-        font-size: 4rem;
-      }
-    }
-    .div_p_home_content {
-      .p_home_content {
-        font-size: 1.2rem;
+      .recipe_btn:hover {
+        cursor: pointer;
       }
     }
   }
 }
 
+@media screen and (max-width: 1440px) {
+  .home_page {
+    background: url(img/medium-bg.png) no-repeat bottom right;
+    .home_container {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 1048px) {
+  .home_page {
+    .home_container {
+      .title_container {
+        h1 {
+          font-size: 4rem;
+        }
+      }
+      .text_container {
+        .home_text {
+          font-size: 1rem;
+          padding: 3rem 0;
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 886px) {
+  .home_page {
+    .home_container {
+      .title_container {
+        h1 {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+
+/* tablet */
+@media screen and (max-width: 768px) {
+  .home_page {
+    background: url(img/small-bg.png) no-repeat bottom right;
+    .home_container {
+      .title_container {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .text_container {
+        .home_text {
+          font-size: 0.9rem;
+          color: violet;
+        }
+      }
+    }
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 560px) {
+  .home_page {
+    background: none;
+    .home_container {
+      width: 100%;
+    }
+  }
+
+  .img-mobile-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 357px) {
+  .home_page {
+    .home_container {
+      .title_container {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+      .text_container {
+        .home_text {
+          font-size: 1rem;
+          color: blue;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 308px) {
+  .home_page {
+    .home_container {
+      .title_container {
+        h1 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 260px) {
+  .home_page {
+    .home_container {
+      .title_container {
+        h1 {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
 ////////////////////////////////////////
 /// RECIPE PAGE
 ////////////////////////////////////////
 
-#recipe_page {
+.recipe_container {
   .content_recipe_section {
     h2 {
       color: var(--light_orange);
@@ -178,7 +268,7 @@ nav {
 /// CATERORY PAGE
 ////////////////////////////////////////
 
-#category_page {
+.category_container {
   h1 {
     color: var(--light_orange);
   }
@@ -272,7 +362,7 @@ nav {
 /// LIST PAGE
 ////////////////////////////////////////
 ///
-#list_page {
+.list_container {
   h1 {
     color: var(--light_orange);
   }

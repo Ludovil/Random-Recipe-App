@@ -18,9 +18,12 @@
   </head>
 
   <body>
-    <main>
-      <!-- -----------------NAV---------------------- -->
+    <!-- -----------------NAV---------------------- -->
 
+    <!-- -----------------HOME-------------------- -->
+
+    <section class="home_page">
+      <!-- -----------------NAV---------------------- -->
       <nav>
         <div class="sub_nav back_home">
           <i class="fa-solid fa-arrow-left-long"></i>
@@ -31,19 +34,16 @@
           <i class="fa-solid fa-arrow-right-long"></i>
         </div>
       </nav>
-
-      <!-- -----------------HOME-------------------- -->
-
-      <section id="home_page">
-        <div class="title">
+      <!-- -----------------NAV---------------------- -->
+      <div class="home_container">
+        <div class="title_container">
           <h1>
             Chef's Surprise
             <span class="undertitle">one click, one recipe</span>
           </h1>
         </div>
-
-        <div class="div_p_home_content">
-          <p class="p_home_content">
+        <div class="text_container">
+          <p class="home_text">
             Chef's Surprise is your passport to culinary adventure! With just a
             click, embark on a delicious journey through a world of diverse
             flavors and dishes. Whether you're an aspiring home cook or a
@@ -54,44 +54,45 @@
             dishes, one surprise at a time.
           </p>
         </div>
-        <div class="div_recipe_btn">
+        <div class="btn_container">
           <button class="recipe_btn">get Recipe</button>
         </div>
-        <div class="div_home_img">
-          <img
-            src="./img/mae-mu-Pvclb-iHHYY-unsplash 1.png"
-            alt="fork with pasta"
-          />
-        </div>
-      </section>
+        <!--           <div class="div_home_img">
+            <img
+              src="./img/mae-mu-Pvclb-iHHYY-unsplash 1.png"
+              alt="fork with pasta"
+            />
+          </div> -->
+      </div>
+    </section>
 
-      <!-- ----------------RECIPE------------------- -->
+    <!-- ----------------RECIPE------------------- -->
 
-      <section id="recipe_page" class="hidden">
-        <div class="content_recipe_section"></div>
-      </section>
+    <div class="recipe_container hidden">
+      <div class="content_recipe_section"></div>
+    </div>
 
-      <!-- ---------------CATEGORY------------------ -->
+    <!-- ---------------CATEGORY------------------ -->
 
-      <section id="category_page" class="hidden">
-        <h1>Category</h1>
-        <p>
-          Here you can select a random recipe for a specific food category or
-          the whole list.
-        </p>
+    <div class="category_container hidden">
+      <h1>Category</h1>
+      <p>
+        Here you can select a random recipe for a specific food category or the
+        whole list.
+      </p>
 
-        <div class="category_grid_container"></div>
-      </section>
+      <div class="category_grid_container"></div>
+    </div>
 
-      <!-- -----------------LIST-------------------- -->
+    <!-- -----------------LIST-------------------- -->
 
-      <section id="list_page" class="hidden">
-        <h1 id="list_title"></h1>
-        <div class="list_grid_container"></div>
-      </section>
+    <div class="list_container hidden">
+      <h1 class="list_title"></h1>
+      <div class="list_grid_container"></div>
+    </div>
 
-      <!-- ----------------------------------------- -->
-    </main>
+    <!-- ----------------------------------------- -->
+
     <script src="script.js" type="module"></script>
   </body>
 </html>

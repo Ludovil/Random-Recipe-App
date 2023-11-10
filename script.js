@@ -28,11 +28,12 @@ goCategory.addEventListener("click", () => {
 //////////////////
 // ELEMENTS
 //////////////////
-const homeSection = document.querySelector("#home_page");
-const recipeSection = document.querySelector("#recipe_page");
+const homePage = document.querySelector(".home_page");
+const homeSection = document.querySelector(".home_container");
+const recipeSection = document.querySelector(".recipe_container");
 const contentRecipeSection = document.querySelector(".content_recipe_section");
-const categorySection = document.querySelector("#category_page");
-const listSection = document.querySelector("#list_page");
+const categorySection = document.querySelector(".category_container");
+const listSection = document.querySelector(".list_container");
 
 //////////////////
 // HOME PAGE
@@ -263,7 +264,7 @@ async function getRecipeCategory() {
           const recipeList = await getListCategory(element.strCategory);
           //////////////////////////////////////////////////
           // title for recipe list page
-          const listTitle = document.querySelector("#list_title");
+          const listTitle = document.querySelector(".list_title");
           //////////////////////////////////////////////////
           //
           ////////////////////////////////////////////////
